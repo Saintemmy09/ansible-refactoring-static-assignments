@@ -1,0 +1,35 @@
+---
+- name: install apache
+  become: true
+  ansible.builtin.yum:
+    name: "httpd"
+    state: present
+
+- name: install git
+  become: true
+  ansible.builtin.yum:
+    name: "git"
+    state: present
+
+- name: clone a repo
+  become: true
+  ansible.builtin.git:
+    repo: https://github.com/StegTechHub/tooling.git
+    dest: /var/www/tooling-src
+    force: yes
+
+- name: copy html content to one level up
+  become: true
+  ansible.builtin.copy:
+    src: /var/www/tooling-src/html/
+    dest: /var/www/html
+    remote_src: yes
+    mode: preserve
+
+- name: Start service httpd, if not started
+  become: true
+  ansible.builtin.service:
+    name: httpd
+    state: started
+
+
