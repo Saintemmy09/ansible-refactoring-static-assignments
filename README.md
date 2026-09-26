@@ -1,5 +1,3 @@
-cd ~/Ansible-Refactoring
-cat > README.md << 'ENDOFFILE'
 # Ansible Refactoring & Static Assignments (Imports & Roles)
 
 Refactoring is a general term in computer programming. It means making changes to the source code without changing expected behaviour of the software. The main idea of refactoring is to enhance code readability, increase maintainability and extensibility, reduce complexity, add proper comments without affecting the logic.
