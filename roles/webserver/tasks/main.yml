@@ -16,6 +16,7 @@
   ansible.builtin.git:
     repo: https://github.com/StegTechHub/tooling.git
     dest: /var/www/tooling-src
+    version: "1.0.0"
     force: yes
 
 - name: copy html content to one level up

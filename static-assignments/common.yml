@@ -3,10 +3,10 @@
   hosts: webservers, nfs, 
   become: yes
   tasks:
-    - name: ensure wireshark is at the latest version
+    - name: ensure wireshark is present
       yum:
         name: wireshark
-        state: latest
+        state: present
 
 - name: update LB and db server
   hosts: lb, db
@@ -16,7 +16,8 @@
       apt:
         update_cache: yes
 
-    - name: ensure wireshark is at the latest version
+    - name: ensure wireshark is present 
       apt:
         name: wireshark
-        state: latest
+        state: present
+
